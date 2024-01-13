@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter N value: ");
+        int n = scanner.nextInt();
+        if (n >= 1) {
+            System.out.print("Enter " + n + " digit number: ");
+            int num = scanner.nextInt();
+            int sum = 0;
+            while (num > 0) {
+                sum += num % 10;
+                num /= 10;
+            }
+            while (sum >= 10) {
+                int tempSum = 0;
+                while (sum > 0) {
+                    tempSum += sum % 10;
+                    sum /= 10;
+                }
+                sum = tempSum;
+            }
+            System.out.println("Sum of " + n + " digit number: " + sum);
+        }
+    }
+}
